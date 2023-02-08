@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #4b5c66;
+}
+
+.chat-button{
+    width: 140px;
+    height: 40px;
+    align-items: center;
+    background-color: #054f77;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 0px black;
+    right: 15px;
+    bottom: 15px;
+    position: fixed;
+    display: block;
+}
+
+.chat-button:hover{
+    opacity: 0.9;
+}
+
+.chat-button img{
+    width: 20px;
+    height: 20px;
+}
+
+.container{
+    display: none;
+    height: 420px;
+    width: 350px;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    box-shadow: 0px 0px 15px 0px black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.chat-header{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #054f77;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chat-header .logo{
+    width: 50px;
+    height: 50px;
+}
+
+.chat-header img{
+    width: 100%;
+    height: 100%;
+}
+
+.chat-header .title{
+    padding-left: 30px;
+}
+
+.chat-header .exit-button{
+    right: 20px;
+    position: absolute;
+}
+
+.exit-button button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.exit-button:hover{
+    opacity: 0.8;
+}
+
+.chat-body{
+    height: 300px;
+    display: flex;
+    padding: 8px 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.chat-inputbar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 15px 15px 10px 10px;
+    box-shadow: 0px 0px 8px 0px  #4b5c66;
+}
+
+#none-msg-send{
+    height: 15px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 15px 15px 10px 10px;
+    box-shadow: 0px 0px 8px 0px  #4b5c66;
+}
+
+.input-sec{
+    flex: 9;
+    padding-left: 5px;
+}
+
+.send{
+    flex: 1;
+    padding-right: 4px;
+}
+
+.send-btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.send-btn:hover{
+    opacity: 0.8;
+}
+
+.send img{
+    width: 50px;
+    height: 30px;
+}
+
+#text-input{
+    line-height: 30px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    caret-color: #054f77;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    display: none;
+}
+
+.bot-message,
+.user-message{
+    max-width: 200px;
+    padding: 8px;
+    background: #ccc;
+    margin: 5px;
+    width: max-content;
+    border-radius: 10px 3px 10px 10px;
+    text-align: justify;
+    word-spacing: -1px;
+}
+
+.user-message{
+    transform: translate(50%);
+    opacity: 0;
+    animation: fade-in-right 0.35s ease-in-out both;
+}
+
+.bot-message{
+    background-color: #054f77;
+    color: white;
+    align-self: flex-start;
+    border-radius: 3px 10px 10px 10px;
+    transform: translate(-50%);
+    opacity: 0;
+    animation: fade-in-left 0.35s ease-in-out both;
+}
+
+.starter-message{
+    align-self: center;
+    color: black;
+    font-size: 0.8rem;
+}
+
+.select-comp, .select-juri, .select-tut,
+.select-fim, .select-area, .select-avalia{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    line-height: 30px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    caret-color: #054f77;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.select-area{
+    display: block;
+}
+
+.select-comp{
+    display: none;
+}
+
+.select-juri{
+    display: none;
+}
+
+.select-tut{
+    display: none;
+}
+
+.select-fim{
+    display: none;
+}
+
+.select-avalia{
+    display: none;
+}
+
+.select-comp option,  .select-juri option, .select-tut option,
+.select-fim option, .select-area option{
+    border-radius: 10px;
+    color: #fff;
+    background-color: #054f77;
+    
+}
+
+@keyframes fade-in-left {
+    0%{
+        transform: translate(-50%);
+        opacity: 0;
+    } 
+    100% {
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-right {
+    0%{
+        transform: translate(50%);
+        opacity: 0;
+    } 
+    100% {
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
